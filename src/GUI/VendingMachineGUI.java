@@ -13,6 +13,8 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class VendingMachineGUI extends JFrame {
+    private int vmNumber; // 자판기 번호 저장
+
     private JLabel currentAmountLabel;
     private int currentAmount;
     public static String adminPassword = "1234"; // 비밀번호를 변경 가능하도록 수정
@@ -25,8 +27,9 @@ public class VendingMachineGUI extends JFrame {
     private Money money;
     private boolean adminMode = false; // 관리자 모드 상태
 
-    public VendingMachineGUI() {
-        setTitle("음료 자판기");
+    public VendingMachineGUI(int vmNumber) {
+        this.vmNumber = vmNumber;
+        setTitle("음료 자판기 " + vmNumber);
         setSize(700, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -422,7 +425,5 @@ public class VendingMachineGUI extends JFrame {
         return remainingAmount == 0;
     }
 
-    public static void main(String[] args) {
-        new VendingMachineGUI();
-    }
+
 }
